@@ -8,15 +8,17 @@
     <movie fps="30" />
     <movie width="800" />
     <movie height="600" />
-    <movie version="9" />
+    <movie version="0" />
     <movie minorVersion="0" />
-    <movie platform="Flash Player" />
+    <movie platform="C#" />
     <movie background="#FFFFFF" />
+    <movie preferredSDK="Haxe 3.4.3;3.4.3;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="test" />
     <class path="src" />
+    <class path="wrapper_src" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -35,16 +37,12 @@
   <compileTargets>
     <!-- example: <compile path="..." /> -->
   </compileTargets>
-  <!-- Assets to embed into the output SWF -->
-  <library>
-    <!-- example: <asset path="..." id="..." update="..." glyphs="..." mode="..." place="..." sharepoint="..." /> -->
-  </library>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>haxe build.hxml</preBuildCommand>
+  <preBuildCommand>haxe build_wrapper.hxml</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->

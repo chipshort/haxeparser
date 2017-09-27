@@ -1,0 +1,17 @@
+-cp src
+-cp test
+-lib hxparse
+
+#Custom options for C# wrapper
+-cp wrapper_src
+-main HaxeParser
+-D dll
+-cs build
+-dce full
+-D analyzer
+
+
+#Debugging options
+#-D real-position
+#-debug
+#-D dump=pretty
