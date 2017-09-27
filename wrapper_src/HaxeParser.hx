@@ -8,7 +8,6 @@ class HaxeParser
 {
 	static function main() {
 		var parser = new hx.HaxeParser(sys.io.File.getContent("src/haxeparser/HaxeParser.hx"), "HaxeParser.hx");
-		var a = new hx.enums.CsEnum.EAbstract(null).switchOn();
 		var result = parser.parse();
 		trace(result);
 	}
