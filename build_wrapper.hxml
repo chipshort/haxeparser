@@ -6,7 +6,7 @@
 -cp wrapper_src
 -main HaxeParser
 -D dll
--cs build
+-cs bin
 -dce full
 -D analyzer
 
