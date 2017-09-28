@@ -9,6 +9,7 @@
 -cs bin
 -dce full
 -D analyzer
+-D no-root
 
 
 #Debugging options
