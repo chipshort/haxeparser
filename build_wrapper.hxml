@@ -10,6 +10,7 @@
 -dce full
 -D analyzer
 -D no-root
+#-D net-ver=40 #might be needed for System.Action and System.Func in the future
 
 
 #Debugging options

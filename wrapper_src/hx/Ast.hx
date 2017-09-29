@@ -10,6 +10,17 @@ import haxeparser.Data.ImportMode;
 
 //TODO: auto-generate most of these?
 
+//HAXEPARSER
+
+@:nativeGen
+interface FieldResult
+{
+	var name : String;
+	var doc : String;
+	var meta: NativeArray<MetadataEntry>;
+	var pos: Position;
+}
+
 //@:struct //not working in current version of Haxe
 @:nativeGen
 class ParseResult
@@ -59,7 +70,7 @@ class Arg
 }
 
 @:nativeGen
-class EnumConstructor
+class EnumConstructor implements FieldResult
 {
 	public var name : String;
 	public var doc: String;
@@ -562,7 +573,7 @@ enum TypeParam {
 	Represents a field in the AST.
 **/
 @:nativeGen
-class Field {
+class Field implements FieldResult {
 	/**
 		The name of the field.
 	**/
@@ -656,4 +667,22 @@ enum ComplexType {
 		Represents an optional type.
 	**/
 	TOptional( t : ComplexType );
+}
+
+
+//HAXELEXER
+@:nativeGen
+class Token {
+	public var tok: haxeparser.Data.TokenDef;
+	public var pos: Position;
+	#if keep_whitespace
+	public var space = "";
+	#end
+	
+	public function new() {
+	}
+
+	public function toString() {
+		return haxeparser.Data.TokenDefPrinter.toString(tok);
+	}
 }

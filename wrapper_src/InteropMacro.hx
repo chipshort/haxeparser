@@ -42,6 +42,7 @@ class InteropMacro
 			switch (ty) {
 				case TInst(t, params):
 					var type = t.get();
+					if (type.isInterface) continue;
 					
 					if (params.length == 0) { //Generic functions need to be written by hand
 						var typestr = baseTypeToString(type, params, false);
@@ -170,7 +171,7 @@ class InteropMacro
 		var typename = typeToString(type);
 		var itypename = typeToString(input);
 		
-		var fields : Array<String> = TypeTools.getClass(type).fields.get().map(function (f) return f.name);
+		var fields : Array<String> = TypeTools.getClass(type).fields.get().filter(function (f) return f.kind.match(FVar(_,_))).map(function (f) return f.name);
 		
 		var returnExpr = macro {
 			var original = ${expr};
